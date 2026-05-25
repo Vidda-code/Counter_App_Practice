@@ -50,14 +50,4 @@ class CounterViewModel : ViewModel() {
             )
         }
     }
-
-    fun reset() {
-        _state.update { currentState ->
-            if (currentState.count == 0) return@update currentState
-            currentState.copy(
-                count = 0,
-                history = currentState.history + "Reset from ${currentState.count} to 0"
-            )
-        }
-    }
 }

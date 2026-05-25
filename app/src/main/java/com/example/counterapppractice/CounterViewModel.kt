@@ -23,7 +23,7 @@ class CounterViewModel : ViewModel() {
 
     fun increment() {
         _state.update { currentState ->
-            val newCount:Int = currentState.count + 1
+            val newCount: Int = currentState.count + 1
             currentState.copy(
                 count = newCount,
                 history = currentState.history + "Incremented by $newCount"
@@ -36,7 +36,17 @@ class CounterViewModel : ViewModel() {
             val newState: Int = currentState.count - 1
             currentState.copy(
                 count = newState,
-                history = currentState.history + "Decremented by $newState
+                history = currentState.history + "Decremented by $newState"
+            )
+        }
+    }
+
+    fun reset() {
+        _state.update { currentState ->
+            if (currentState.count == 0) return@update currentState
+            currentState.copy(
+                count = 0,
+                history = currentState.history + "Reset from ${currentState.count} to 0"
             )
         }
     }

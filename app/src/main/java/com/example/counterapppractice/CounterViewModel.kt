@@ -30,4 +30,14 @@ class CounterViewModel : ViewModel() {
             )
         }
     }
+
+    fun decrement() {
+        _state.update { currentState ->
+            val newState: Int = currentState.count - 1
+            currentState.copy(
+                count = newState,
+                history = currentState.history + "Decremented by $newState
+            )
+        }
+    }
 }

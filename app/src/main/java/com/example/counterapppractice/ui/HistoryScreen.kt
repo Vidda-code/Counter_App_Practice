@@ -19,7 +19,7 @@ fun HistoryScreen(
         modifier = Modifier
     ) {
         items(history) { item ->
-            Text(text = "History: $history")
+            Text(text = item)
         }
     }
 }
